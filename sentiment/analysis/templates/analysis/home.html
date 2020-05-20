@@ -1,0 +1,55 @@
+
+{% extends 'analysis/base.html' %}
+
+{% block content %}
+
+<form action="" method="POST" class="search-form">
+    {% csrf_token %}
+    <div class="search-form">
+        <input type="text" name="comment" id="comment" class="form-control form-control-lg">
+    </div>
+    
+    <div class="search-form">
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6">
+                <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block">
+            </div>
+            <div class="col col-md-6"> 
+                <input type="reset" class="btn btn-danger btn-lg btn-block">
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12">
+                <h1>This sentence is:
+                    
+                    {% if class %}
+                        {% if class == 'pos' %}
+                            <span style="color: green;">
+                                {{ class }} 
+                            </span>
+                        {% else %}
+                            <span style="color: red;">
+                                {{ class }} 
+                            </span>
+                        {% endif %}
+                        
+                        
+                        
+                        with confidence {{ confidence }}%
+                    {% endif %}
+
+                </h1>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+</form> 
+
+
+{% endblock %}
